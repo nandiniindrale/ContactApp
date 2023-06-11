@@ -11,7 +11,7 @@ route.get("/", async (req, res) => {
   } catch (error) {
     res.status(500).json({ statue: "FILED", error });
   }
-  // res.status(200).json("this is first contact api");
+   
 });
 
 // create a new contact user
@@ -27,36 +27,36 @@ route.post("/create", async (req, res) => {
   });
 
 // get single contact user
-// route.get("/:id", async (req, res) => {
-//   const id = req.params.id;
-//   try {
-//     const singleUser = await Contact.findById(id);
-//     res.status(200).json({ status: "SUCCESS", singleUser });
-//   } catch (error) {
-//     res.status(500).json({ statue: "FILED", error });
-//   }
-// });
+route.get("/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const singleUser = await Contact.findById(id);
+    res.status(200).json({ status: "SUCCESS", singleUser });
+  } catch (error) {
+    res.status(500).json({ statue: "FILED", error });
+  }
+});
 
 // update contact user
-// route.put("/update/:id", async (req, res) => {
-//   const id = req.params.id;
-//   try {
-//     const updatedUser = await Contact.findByIdAndUpdate(id, req.body);
-//     res.status(200).json({ status: "SUCCESS", updatedUser });
-//   } catch (error) {
-//     res.status(500).json({ statue: "FILED", error });
-//   }
-// });
+route.put("/update/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const updatedUser = await Contact.findByIdAndUpdate(id, req.body);
+    res.status(200).json({ status: "SUCCESS", updatedUser });
+  } catch (error) {
+    res.status(500).json({ statue: "FILED", error });
+  }
+});
 
 // delete contact user
-// route.delete("/delete/:id", async (req, res) => {
-//   const id = req.params.id;
-//   try {
-//     const removedUser = await Contact.findByIdAndRemove(id);
-//     res.status(200).json({ status: "SUCCESS", removedUser });
-//   } catch (error) {
-//     res.status(500).json({ statue: "FILED", error });
-//   }
-// });
+route.delete("/delete/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const removedUser = await Contact.findByIdAndRemove(id);
+    res.status(200).json({ status: "SUCCESS", removedUser });
+  } catch (error) {
+    res.status(500).json({ statue: "FILED", error });
+  }
+});
 
 module.exports = route;
